@@ -74,12 +74,14 @@ if __name__ == "__main__":
             username = string.capwords(input("Which famous person do you research on Wikipedia ?\n"))
             infos = wikipedia.search(username)
             if len(infos) == 0 or not username.__eq__(infos[0]):
-                suggest_name = string.capwords(SuggestPeople(username))
+                suggest_name = SuggestPeople(username)
                 if suggest_name is not None:
+                    suggest_name = string.capwords(suggest_name)
                     choice = CreateMenu(f"Did you mean {suggest_name} ?", ["Yes", "No"])
                     if choice == "Yes":
                         DataToDatabase(suggest_name)
             else:
+                input("HELP")
                 DataToDatabase(username)
         else:
             exit()
