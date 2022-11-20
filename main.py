@@ -7,7 +7,6 @@ def SuggestPeople(username: str) -> str:
     suggest_name = wikipedia.suggest(username)
     return None if suggest_name is None else suggest_name
 
-
 def CreateMenu(title: str, options: list[str]) -> int:
     os.system("cls")
     content = '\n'.join([f"{nb}. {option}" for nb, option in enumerate(options, start=1)])
@@ -63,7 +62,6 @@ def DataToDatabase(username: str):
     finally:
         if connection:
             connection.close()
-
 
 if __name__ == "__main__":
     CheckDatabase()
