@@ -50,7 +50,7 @@ def DataToDatabase(username: str):
         cursor = connection.cursor()
         if not DataExists(username, cursor):
             query = "INSERT INTO famous_people (NAME, SUMMARY) VALUES (? , ?)"
-            cursor.execute(query, (username, wikipedia.summary(username)))
+            cursor.execute(query, (username, wikipedia.summary(username, auto_suggest=False)))
             connection.commit()
             input(f"{username} has been added in the famous_people table. Press ENTER to continue.")
         else:
