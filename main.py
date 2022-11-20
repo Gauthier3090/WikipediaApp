@@ -80,8 +80,9 @@ if __name__ == "__main__":
                     choice = CreateMenu(f"Did you mean {suggest_name} ?", ["Yes", "No"])
                     if choice == "Yes":
                         DataToDatabase(suggest_name)
+                else:
+                    input(f"{username} doesn't exist on Wikipedia. Press ENTER to continue.")
             else:
-                input("HELP")
                 DataToDatabase(username)
         else:
             exit()
